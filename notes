@@ -1,0 +1,29 @@
+setup for front-end:
+
+on home page, will have 
+
+Navbar (Home button)\
+
+Title
+Randomly Generated Fitness Inspirational Quote
+Photo
+List of 5 large buttons Monday - Friday
+
+When a button is clicked, page re-renders to another page with the workout for that day on it
+On this page, will have
+
+Day of Week Workout
+Type of Workout (Arms/Legs/Chest/Back/Core/etc)
+List of Exercises for that workout
+
+For each exercise:
+Will have: 
+Title
+Description (what body parts does it work, how to do it)
+Embedded video from Youtube API
+
+Stretch goals:
+-search bar for youtube
+-Day of week automatically highlights based on actual date
+-forward and backward day buttons on each details page
+'Add workout' form

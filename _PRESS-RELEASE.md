@@ -18,21 +18,28 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  LiftPlan
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  For weight-lifters who want the perfect form every time and to take the guesswork out of their workouts.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  This product supplies a sample 5-day workout plan. Each workout listed includes a description and video for each listed exercise, so you can be sure you have correct form to prevent injuries and to get best results. 
 
 ## Problem ##
   > Describe the problem your product solves.
+  Many people avoid the gym because they feel anxiety about looking silly because they are doing exercises wrong. I know when I have anxiety, it makes it harder to think about what I should actually be doing (finding my next exercise and figuring out how to do it correctly). This app takes the guess work out of the gym. All you need to do is choose the day of the week, and the app figures everything else out for you!
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  With LiftPlan, you'll never feel lost in the gym again. 
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  "Less thinking, more lifting"
+    -Sarah Pickles
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
@@ -42,3 +49,4 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  "Stop wasting your energy in the gym on decisions. Kick-start your confidence today and download LiftPlan!
