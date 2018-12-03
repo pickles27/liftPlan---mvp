@@ -1,12 +1,12 @@
 import React from 'react';
 import Day from './Day.jsx';
 
-const DayList = (props) => (
+const DaysList = (props) => (
   <div>
-    <h4> DayList Component </h4>
-    There are { props.days.length } items.
-    { props.days.map(day => <ListItem days={day}/>)}
+    <h4> Choose the day: </h4>
+    { props.days.map(day => <button onClick={props.handleDayButtonClick} className="dayButtons">{day.day}</button>) }
   </div>
 )
 
-export default List;
+export default DaysList;
+    // { props.days.map(day => <Day day={day}/>)}

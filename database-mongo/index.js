@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/liftplan');
 
 var db = mongoose.connection;
 
-db.on('error', function() {
-  console.log('mongoose connection error');
+db.on('error', function(err) {
+  console.log('mongoose connection error:', err);
 });
 
 db.once('open', function() {
@@ -12,20 +12,33 @@ db.once('open', function() {
 });
 
 var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+  day: String,
+  occasion: String,
+  workouts: Array
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var Data = mongoose.model('Data', itemSchema);
 
 var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+  Data.find({}, function(err, data) {
     if(err) {
       callback(err, null);
     } else {
-      callback(null, items);
+      callback(null, data);
     }
   });
 };
 
+var singleDay = function(day, callback) {
+  Data.find({day: day}, function(err, data) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  });
+}
+
 module.exports.selectAll = selectAll;
+module.exports.singleDay = singleDay;
+module.exports.Data = Data;

@@ -23,7 +23,10 @@ Description (what body parts does it work, how to do it)
 Embedded video from Youtube API
 
 Stretch goals:
+-users with buttons to click when complete exercise with positive message
 -search bar for youtube
 -Day of week automatically highlights based on actual date
--forward and backward day buttons on each details page
-'Add workout' form
+-forward and backward day buttons on each details page in navbar
+'Add/Edit workout' form, update or add new workout
+
+navbar: tips link to page with some tips listed on it

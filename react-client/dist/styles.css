@@ -1,0 +1,9 @@
+.dayButtons {
+	background-color: pink;
+	display: flex;
+	flex-direction: column;
+}
+
+.homeButton {
+	background-color: lightblue;
+}
