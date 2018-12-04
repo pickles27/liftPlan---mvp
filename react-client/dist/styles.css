@@ -1,9 +1,74 @@
+html {
+	background-image: url('http://1.bp.blogspot.com/-dYygGq-7_p8/UHcSQiyBd5I/AAAAAAAADl4/14FNi47gAhU/s1600/Actor-pictures-arnold-schwarzenegger-wallpapers-hd-arnold-schwarzenegger-wallpaper-13.jpg');
+	background-size: 100%;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+}
+
+button {
+	font-family: 'Roboto Mono', monospace;
+}
+
+textarea {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.submitButton {
+	background-color: #FFDFEE;
+}
+
+.workoutVideo {
+	width: 420px;
+	height: 315px;
+}
+
+.page {
+	padding: 5%;
+	width: 50%;
+	height: 100%;
+	border: solid black 5px;
+	text-align: center;
+	background-color: white;
+}
+
+.singleExercise {
+	border: solid #DFFFF7 2px;
+	padding: 2%;
+	text-align: center;
+}
+
 .dayButtons {
-	background-color: pink;
-	display: flex;
-	flex-direction: column;
+	background-color: #DFFFF7;
+	display: block;
+	margin: 1%;
+	width: 100%;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 1.5em;
 }
 
 .homeButton {
-	background-color: lightblue;
+	background-color: #FFDFEE;
+	margin: 1px;
+}
+
+.addExerciseButton {
+	background-color: #FFDFEE;
+	margin: 1px;
+}
+
+.deleteButton {
+	background-color: lightgrey;
+}
+
+.daysList {
+	text-align: center;
+}
+
+.workoutDescription {
+	white-space: pre-wrap;
+	line-height: 2em;
 }

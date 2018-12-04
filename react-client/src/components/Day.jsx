@@ -6,10 +6,11 @@ import React from 'react';
 const Day = (props) => (
 	<div>
 		{props.day.workouts.map(workout => 
-			<div>
-		    <h4>{ workout.name }</h4>
-		    <p>{ workout.description }</p>
-		    <iframe src={ workout.videoLink } height="315" width="420"></iframe>
+			<div className="singleExercise">
+		    <h3 className="workoutName">{ workout.name }</h3>
+		    <button name={ workout.name } className="deleteButton" onClick={ props.deleteExercise }>Delete</button>
+		    <p className="workoutDescription">{ workout.description }</p>
+		    <iframe className="workoutVideo" src={ workout.videoLink }></iframe>
 			</div>
 		)}
 	</div>
