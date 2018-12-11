@@ -34,7 +34,7 @@ const AddNewForm = (props) => (
     </div>
     <div>
 	    <label>
-	    	Please write a short description of the exercise, inserting "\n" whenever you'd like a line break in your description:
+	    	Please write a short description of the exercise:
 	    	<textarea type="text" name="NXdescription" onChange={props.handleInputChange} />
 	    </label>
     </div>

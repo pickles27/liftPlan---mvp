@@ -39,10 +39,8 @@ app.put('/addexercise', function(req, res) {
   });
 });
 
-app.put('./deleteexercise', function(req, res) {
-  var name = req.body;
-  console.log('name inside delete express server: ', name);
-  items.deleteExercise(name, function(err, data) {
+app.delete('/deleteexercise/:day/:name', function(req, res) {
+  items.deleteExercise(req.params, function(err, data) {
     if (err) {
       res.status(500).send(err);
     } else {

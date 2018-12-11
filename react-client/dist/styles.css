@@ -42,21 +42,22 @@ textarea {
 }
 
 .dayButtons {
-	background-color: #DFFFF7;
+	background-color: #FFDFEE;
 	display: block;
-	margin: 1%;
+	margin: 2px;
 	width: 100%;
 	font-family: 'Roboto Mono', monospace;
 	font-size: 1.5em;
+	border: solid #DFFFF7 4px;
 }
 
 .homeButton {
-	background-color: #FFDFEE;
+	background-color: #DFFFF7;
 	margin: 1px;
 }
 
 .addExerciseButton {
-	background-color: #FFDFEE;
+	background-color: #DFFFF7;
 	margin: 1px;
 }
 

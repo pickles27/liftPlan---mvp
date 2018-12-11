@@ -13,7 +13,7 @@ class App extends React.Component {
       data: [],
       day: 'null',
       dayData: {},
-      NXday: '',
+      NXday: 'Monday',
       NXname: '',
       NXdescription: '',
       NXsets: '',
@@ -93,19 +93,17 @@ class App extends React.Component {
         "Content-Type": 'application/json'
       },
       data: JSON.stringify(object),
-      success: () => {console.log('Added exercise successfully!');},
+      success: () => alert('Exercise added!'),
       error: (error) => {console.log(error)}
     });
   }
 
   deleteExercise(event) {
-    var name = event.target.name;
     event.preventDefault();
     $.ajax({
-      method: 'PUT',
-      url: '/deleteexercise',
-      data: name,
-      success: () => {console.log('Deleted exercise successfully.')},
+      method: 'DELETE',
+      url: `/deleteexercise/${this.state.NXday}/${event.target.name}`,
+      success: () => alert('Exercise deleted! Please refresh the page.'),
       error: (error) => {console.log(error)}
     });
   }
@@ -121,8 +119,9 @@ class App extends React.Component {
     function getRandomInt(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+      return Math.floor(Math.random() * (max - min)) + min; 
     }
+
     var quotes = [
       "Success isn’t always about greatness. It’s about consistency. Consistent hard work gains success. Greatness will come.",
       "Train insane or remain the same.",
@@ -139,6 +138,7 @@ class App extends React.Component {
       "The only bad workout is the one that didn’t happen.",
       "Go the extra mile. It’s never crowded."
     ];
+
     return quotes[getRandomInt(0, quotes.length)];
   }
 

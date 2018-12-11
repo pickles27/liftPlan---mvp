@@ -54,8 +54,8 @@ var addExercise = function(object, callback) {
   });
 }
 
-var deleteExercise = function(name, callback) {
-  Data.findOneAndDelete({"name": name}, (err, data) => {
+var deleteExercise = function(object, callback) {
+  Data.update({"day": object.day}, {$pull: {"workouts": {"name": object.name}}}, (err, data) => {
     if (err) {
       callback(err, null);
     } else {
@@ -64,21 +64,8 @@ var deleteExercise = function(name, callback) {
   });
 }
 
-  /*
-    db.collection.update(
-        { "_id": ID, "playlists._id": "58"},
-        { "$push": 
-            {"playlists.$.musics": 
-                {
-                    "name": "test name",
-                    "duration": "4.00"
-                }
-            }
-        }
-    )
-  */
-
 module.exports.selectAll = selectAll;
 module.exports.singleDay = singleDay;
 module.exports.addExercise = addExercise;
+module.exports.deleteExercise = deleteExercise;
 module.exports.Data = Data;
