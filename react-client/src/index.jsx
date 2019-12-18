@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import constants from './constants.js';
 import DaysList from './components/DaysList.jsx';
 import Day from './components/Day.jsx';
 import Navbar from './components/Navbar.jsx';
@@ -11,7 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = { 
       data: [],
-      day: 'null',
+      day: null,
       dayData: {},
       NXday: 'Monday',
       NXname: '',
@@ -44,9 +45,8 @@ class App extends React.Component {
   }
 
   handleInputChange(event) {
-    const target = event.target;
-    const name = target.name;
-    const value = target.value;
+    const name = event.target.name;
+    const value = event.target.value;
     this.setState({
       [name]: value
     })
@@ -76,7 +76,7 @@ class App extends React.Component {
   }
 
   handleAddExercise(event) {
-    var object = {
+    const body = {
       "day": this.state.NXday,
       "data": {
         "name": this.state.NXname,
@@ -92,7 +92,7 @@ class App extends React.Component {
       headers: {
         "Content-Type": 'application/json'
       },
-      data: JSON.stringify(object),
+      data: JSON.stringify(body),
       success: () => alert('Exercise added!'),
       error: (error) => {console.log(error)}
     });
@@ -111,66 +111,39 @@ class App extends React.Component {
   handleHomeButtonClick(event) {
     event.preventDefault();
     this.setState({
-      day: 'null'
+      day: null
     });
   }
 
   getRandomInspirationalQuote() {
-    function getRandomInt(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min)) + min; 
-    }
-
-    var quotes = [
-      "Success isn’t always about greatness. It’s about consistency. Consistent hard work gains success. Greatness will come.",
-      "Train insane or remain the same.",
-      "Push yourself because no one else is going to do it for you.",
-      "Suck it up. And one day you won’t have to suck it in.",
-      "Success starts with self-discipline.",
-      "Good things come to those who sweat.",
-      "Motivation is what gets you started. Habit is what keeps you going.",
-      "A one hour workout is 4% of your day. No excuses",
-      "What seems impossible today will one day become your warm-up.",
-      "Never give up on a dream just because of the time it will take to accomplish it. The time will pass anyway.",
-      "Someone busier than you is working out right now.",
-      "Hustle for that muscle.",
-      "The only bad workout is the one that didn’t happen.",
-      "Go the extra mile. It’s never crowded."
-    ];
-
-    return quotes[getRandomInt(0, quotes.length)];
+    const randNum = Math.floor(Math.random() * (constants.quotes.length)); 
+    return constants.quotes[randNum];
   }
 
   render () {
-    if (this.state.day === 'null') {
-      return (
-        <div className="page">
-          <Navbar handleHomeButtonClick={this.handleHomeButtonClick} handleNavbarAddButtonClick={this.handleNavbarAddButtonClick} />
-          <h1>LiftPlan</h1>
-          <h6>{ this.getRandomInspirationalQuote() }</h6>
-          <DaysList days={this.state.data} handleDayButtonClick={this.handleDayButtonClick} />
-        </div>
-      );
-    } else if (this.state.day === 'addExerciseForm') {
-      return (
-        <div className="page">
-          <Navbar handleHomeButtonClick={this.handleHomeButtonClick} handleNavbarAddButtonClick={this.handleNavbarAddButtonClick} />
-          <h1>LiftPlan</h1>
-          <h2>Add New Exercise:</h2>
-          <AddNewForm handleInputChange={this.handleInputChange} handleAddExercise={this.handleAddExercise} />
-        </div>
-      );
-    } else {
-      return (
-        <div className="page">
-          <Navbar handleHomeButtonClick={this.handleHomeButtonClick} handleNavbarAddButtonClick={this.handleNavbarAddButtonClick} />
-          <h1>{ this.state.day }</h1>
-          <h2>{ this.state.dayData.occasion }</h2>
-          <Day deleteExercise={this.deleteExercise} day={ this.state.dayData } />
-        </div>
-      );
-    } 
+    const title = this.state.day === null || this.state.day === 'addExercise' ? <h1>LiftPlan</h1> : null;
+    const quote = this.state.day === null ? <h6>{ this.getRandomInspirationalQuote() }</h6> : null;
+    const dayList = this.state.day === null ? <DaysList days={this.state.data} handleDayButtonClick={this.handleDayButtonClick} /> : null;
+    const addExercises = this.state.day === 'addExerciseForm' ? <>
+      <h2>Add New Exercise:</h2>
+      <AddNewForm handleInputChange={this.handleInputChange} handleAddExercise={this.handleAddExercise} />
+    </> : null;
+    const dayDisplay = <>
+      <h1>{ this.state.day }</h1>
+      <h2>{ this.state.dayData.occasion }</h2>
+      <Day deleteExercise={this.deleteExercise} day={ this.state.dayData } />
+    </>;
+
+    return (
+      <div className="page">
+        <Navbar handleHomeButtonClick={this.handleHomeButtonClick} handleNavbarAddButtonClick={this.handleNavbarAddButtonClick} />
+        {title}
+        {quote}
+        {dayList}
+        {addExercises}
+        {dayDisplay}
+      </div>
+    );
   }
 }
 
