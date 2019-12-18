@@ -1,4 +1,4 @@
-const Data = require('./database-mongo/index.js').Data
+const Data = require('./database-mongo/index.js').Data;
 
 var data = [
   { "day": "Monday", 
