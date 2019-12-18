@@ -19,7 +19,7 @@ class App extends React.Component {
       NXdescription: '',
       NXsets: '',
       NXreps: '',
-      NXvideoId: ''
+      link: ''
     }
     this.handleDayButtonClick = this.handleDayButtonClick.bind(this);
     this.handleHomeButtonClick = this.handleHomeButtonClick.bind(this);
@@ -70,8 +70,7 @@ class App extends React.Component {
 
   handleNavbarAddButtonClick(event) {
     event.preventDefault();
-    this.setState({
-      day: 'addExerciseForm'
+    this.setState(constants.addExerciseForm
     });
   }
 
@@ -82,7 +81,7 @@ class App extends React.Component {
         "name": this.state.NXname,
         "amount": this.state.NXsets + ' sets, ' + this.state.NXreps + ' reps',
         "description": this.state.NXdescription,
-        "videoLink": 'https://www.youtube.com/embed/' + this.state.NXvideoId
+        "videoLink": this.state.link
       }
     }
     event.preventDefault();
@@ -93,7 +92,7 @@ class App extends React.Component {
         "Content-Type": 'application/json'
       },
       data: JSON.stringify(body),
-      success: () => alert('Exercise added!'),
+      success: () => alert(constants.addSuccess),
       error: (error) => {console.log(error)}
     });
   }
@@ -103,7 +102,7 @@ class App extends React.Component {
     $.ajax({
       method: 'DELETE',
       url: `/deleteexercise/${this.state.NXday}/${event.target.name}`,
-      success: () => alert('Exercise deleted! Please refresh the page.'),
+      success: () => alert(constants.deleteSuccessMessage),
       error: (error) => {console.log(error)}
     });
   }
@@ -121,18 +120,18 @@ class App extends React.Component {
   }
 
   render () {
-    const title = this.state.day === null || this.state.day === 'addExercise' ? <h1>LiftPlan</h1> : null;
+    const title = this.state.day === null || this.state.day === constants.addExerciseForm ? <h1>LiftPlan</h1> : null;
     const quote = this.state.day === null ? <h6>{ this.getRandomInspirationalQuote() }</h6> : null;
     const dayList = this.state.day === null ? <DaysList days={this.state.data} handleDayButtonClick={this.handleDayButtonClick} /> : null;
-    const addExercises = this.state.day === 'addExerciseForm' ? <>
+    const addExercises = this.state.day === constants.addExerciseForm ? <>
       <h2>Add New Exercise:</h2>
       <AddNewForm handleInputChange={this.handleInputChange} handleAddExercise={this.handleAddExercise} />
     </> : null;
-    const dayDisplay = <>
+    const dayDisplay = this.state.day !== null && this.state.day !== constants.addExerciseForm ? <>
       <h1>{ this.state.day }</h1>
       <h2>{ this.state.dayData.occasion }</h2>
       <Day deleteExercise={this.deleteExercise} day={ this.state.dayData } />
-    </>;
+    </> : null;
 
     return (
       <div className="page">

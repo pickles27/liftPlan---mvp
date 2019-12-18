@@ -14,3 +14,9 @@ export const quotes = [
     "The only bad workout is the one that didn’t happen.",
     "Go the extra mile. It’s never crowded."
 ]; 
+
+export const addExerciseForm = 'addExerciseForm';
+
+export const deleteSuccessMessage = 'Exercise deleted! Please refresh the page.';
+
+export const addSuccessMessage = 'Exercise added!';
