@@ -20,3 +20,13 @@ export const addExerciseForm = 'addExerciseForm';
 export const deleteSuccessMessage = 'Exercise deleted! Please refresh the page.';
 
 export const addSuccessMessage = 'Exercise added!';
+
+export const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+export const dailyTitles = {
+  'Monday': 'Monday - Leg Day #1 (Posterior Chain Dominant)',
+  'Tuesday': 'Tuesday - Chest Day',
+  'Wednesday': 'Wednesday - Arms/Shoulders Day',
+  'Thursday': 'Thursday - Back Day',
+  'Friday': 'Friday - Leg Day #2 (Quad Dominant)'
+};

@@ -70,8 +70,7 @@ class App extends React.Component {
 
   handleNavbarAddButtonClick(event) {
     event.preventDefault();
-    this.setState(constants.addExerciseForm
-    });
+    this.setState({ 'day': constants.addExerciseForm });
   }
 
   handleAddExercise(event) {
