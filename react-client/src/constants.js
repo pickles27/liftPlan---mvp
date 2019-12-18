@@ -30,3 +30,23 @@ export const dailyTitles = {
   'Thursday': 'Thursday - Back Day',
   'Friday': 'Friday - Leg Day #2 (Quad Dominant)'
 };
+
+export const addFormSections = [
+  {
+    'label': 'Name of exercise:',
+    'nameKey': 'NXname'
+  },
+  {
+    'label': 'How many sets?',
+    'nameKey': 'NXsets'
+  },
+  {
+    'label': 'How many reps?',
+    'nameKey': 'NXreps'
+  },
+  {
+    'label': 'Please enter a valid Youtube Video Id: (the alphanumeric id at the end of the URL) that correctly demonstrates your exercise:',
+    'nameKey': 'NXvideoId'
+
+  }
+];
